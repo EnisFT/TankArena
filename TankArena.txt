@@ -41,10 +41,10 @@ Arène Equestria :
  
  Idée de capacité spéciale :
  
- Nom         |   Pièce      |    Effet
+ Nom             |   Pièce      |    Effet
 --------------------------------------------------------------
-Invisibilité |   Coque      | le tank devient invisible pour X secondes ou jusqu'a son premier tir
-Mine         |   Coque      | le tank pose une mine a ces pieds explosant au premier contact ou au bout de X secondes
-Acceleration | Chenilles    | le tank accélère brutalement pour X secondes
- 
+Invisibilité     |   Coque      | Le tank devient invisible pour X secondes ou jusqu'a son premier tir
+Mine             |   Coque      | Le tank pose une mine à ses pieds explosant au premier contact ou au bout de X secondes
+Acceleration     | Chenilles    | Le tank accélère brutalement pour X secondes
+Bouclier orienté |   Coque      | Le tank pose un bouclier (champ de force) devant lui qui reste sur place pendant 5 secondes
  
