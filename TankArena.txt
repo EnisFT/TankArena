@@ -1,0 +1,50 @@
+Objectifs à court termes :
+_Structure general du tank : Chenilles, Coque, Canon
+_Deplacement du tank + pivotage du canon
+_Capacité special de la coque : posage de mines
+_Attaque du canon avec des obus qui ricochent 2 fois.
+_IA simple : Selectionne une target, et tir + evite les obstacles => Utilisation du navmesh
+_Terrain simple avec des murs destructible ou non
+
+Poubelle :
+_Un SHOP !!
+ Pour modifier son tank. A la fin de chaque arène le joueur gagne de l'argent en fonction de sa performance qui peut être dépenser dans le shop
+ Afin d'améliorer son tank
+_Solo : Le joueur se déplace dans different pays ou il doit reussir plusieurs défi dans l'arène jusqu'au boss
+
+Arène France :
+   _ _ _ _ _ _ _   _ _ _ _ _ _ _   _ _ _ _ _ _ _   _ _ _ _ _ _ _   _ _ _ _ _ _ _
+ |               |               |               |               |               |
+ |               |               |               |               |               |
+ |    Défi 1     |    Défi 2     |     Défi 3    |     Défi 4    |    Holande    |
+ |               |               |               |               |               |
+ |               |               |               |               |               |
+ | _ _ _ _ _ _ _ | _ _ _ _ _ _ _ | _ _ _ _ _ _ _ | _ _ _ _ _ _ _ | _ _ _ _ _ _ _ |
+ 
+Arène Equestria :
+   _ _ _ _ _ _ _   _ _ _ _ _ _ _   _ _ _ _ _ _ _   _ _ _ _ _ _ _   _ _ _ _ _ _ _
+ |               |               |               |               |               |
+ |               |               |               |               |               |
+ |    Défi 1     |    Défi 2     |     Défi 3    |     Défi 4    |    Celestia   |
+ |               |               |               |               |               |
+ |               |               |               |               |               |
+ | _ _ _ _ _ _ _ | _ _ _ _ _ _ _ | _ _ _ _ _ _ _ | _ _ _ _ _ _ _ | _ _ _ _ _ _ _ |
+ 
+ .....
+ 
+ _Arène améliorée :
+ Ajout de pièges, 
+ de tourelles, 
+ de trou (Et la avoir des "chenilles" qui lévitent c'est cool !) 
+ d'effet globaux
+ 
+ 
+ Idée de capacité spéciale :
+ 
+ Nom         |   Pièce      |    Effet
+--------------------------------------------------------------
+Invisibilité |   Coque      | le tank devient invisible pour X secondes ou jusqu'a son premier tir
+Mine         |   Coque      | le tank pose une mine a ces pieds explosant au premier contact ou au bout de X secondes
+Acceleration | Chenilles    | le tank accélère brutalement pour X secondes
+ 
+ 
