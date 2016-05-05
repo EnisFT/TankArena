@@ -17,23 +17,23 @@ public class tankMove : MonoBehaviour {
 	{
 		if(Input.GetKey(KeyCode.Z))
 		{
-			transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+			transform.Translate(-Vector3.up * moveSpeed * Time.deltaTime);
 		}
 		else if(Input.GetKey(KeyCode.S))
 		{
-			transform.Translate(-Vector3.forward * moveSpeed * Time.deltaTime);
+			transform.Translate(Vector3.up * moveSpeed * Time.deltaTime);
 		}
 
 		if(Input.GetKey(KeyCode.D))
 		{
-			transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime);
+			transform.Rotate(Vector3.forward, turnSpeed * Time.deltaTime);
 		}
 
 		if(Input.GetKey(KeyCode.Q))
 		{
-			transform.Rotate(-Vector3.up, turnSpeed * Time.deltaTime);
+			transform.Rotate(-Vector3.forward, turnSpeed * Time.deltaTime);
 		}
 
-		transform.eulerAngles =  new Vector3(0, transform.eulerAngles.y, 0);
+		transform.eulerAngles =  new Vector3(270, transform.eulerAngles.y, 0 );
 	}
 }

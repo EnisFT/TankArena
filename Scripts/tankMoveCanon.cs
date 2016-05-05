@@ -17,8 +17,6 @@ public class tankMoveCanon : MonoBehaviour {
             Quaternion rot = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(D), rotateSpeed * Time.deltaTime);
             transform.rotation = rot;
             transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
-            Debug.Log("test");
         }
-
     }
 }
