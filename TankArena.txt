@@ -1,4 +1,4 @@
-Objectifs à court termes :
+﻿Objectifs à court termes :
 _Structure general du tank : Chenilles, Coque, Canon
 _Deplacement du tank + pivotage du canon
 _Capacité special de la coque : posage de mines
@@ -9,7 +9,7 @@ _Terrain simple avec des murs destructible ou non
 Poubelle :
 _Un SHOP !!
  Pour modifier son tank. A la fin de chaque arène le joueur gagne de l'argent en fonction de sa performance qui peut être dépenser dans le shop
- Afin d'améliorer son tank
+ Afin d'améliorer son tank. Modifier la couleur et le blason (why not ?)
 _Solo : Le joueur se déplace dans different pays ou il doit reussir plusieurs défi dans l'arène jusqu'au boss
 
 Arène France :
