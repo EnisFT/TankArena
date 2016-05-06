@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using System;
-using System.Collections.Generic;
 
 public class Bullet : MonoBehaviour {
 
@@ -11,19 +9,18 @@ public class Bullet : MonoBehaviour {
     private Ray ray;
 
     private RaycastHit hit;
-    private LayerMask obstacle;
+    private LayerMask hitable;
 
     public void Start() {
-        obstacle = 1 << LayerMask.NameToLayer("Obstacle");
+        hitable = 1 << 8 | 1 << 9 | 1 << 10 | 1 << 11 | 1 << 12;
     }
 
     public void Fire(GameObject source) {
         transform.eulerAngles = source.gameObject.transform.eulerAngles;
         transform.position = source.gameObject.transform.position;
         foreach (var component in GetComponents(typeof(BulletEffect))) {
-            ((BulletEffect)component).OnCreation() ;
+            ((BulletEffect)component).OnCreation();
         }
-        Debug.Log(GetComponent<BounceEffect>().numberOfBounce);
         isAlive = true;
     }
 
@@ -32,7 +29,8 @@ public class Bullet : MonoBehaviour {
             foreach (var component in GetComponents(typeof(BulletEffect))) {
                 ((BulletEffect)component).OnRefreshTimer();
             }
-            if (Physics.Raycast(transform.position, transform.forward, out hit, 0.5f)) {
+            Vector3 startPos = transform.position + transform.forward * transform.GetComponent<BoxCollider>().size.z;
+            if (Physics.Raycast(startPos, transform.forward, out hit, 0.5f, hitable)) {
                 foreach (var component in GetComponents(typeof(BulletEffect))) {
                     ((BulletEffect)component).OnObstacleCollision(hit);
                 }
