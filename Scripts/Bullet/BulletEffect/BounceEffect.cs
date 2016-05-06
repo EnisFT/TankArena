@@ -3,7 +3,7 @@
 public class BounceEffect : BulletEffect {
 
     public int bounceCounter;
-    public int numberOfBounce;
+    private int numberOfBounce;
 
     public override void Effect(EffectSource source) {
         if (numberOfBounce == bounceCounter)
