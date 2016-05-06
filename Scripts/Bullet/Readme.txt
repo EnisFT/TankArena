@@ -9,6 +9,9 @@ Modification général :
 	Appliquer les layers aux entitées correspondantes.
 
 Utilisation des scripts :
+
+/!\ Split ne fonctionne pas comme prévu ! Eviter de l'utiliser
+
 Script Bullet defini le gameobject comme étant un bullet.
 BulletEffect permet de modifier le comportement du bullet
 
