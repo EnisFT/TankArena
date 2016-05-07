@@ -15,12 +15,15 @@ public abstract class BulletEffect : MonoBehaviour {
     public bool applyOnDestruction;
 
     protected RaycastHit hit;
+    protected bool hitting;
     protected float elapsedTime;
 
     public void OnObstacleCollision(RaycastHit hit) {
         if (applyOnCollision) {
             this.hit = hit;
+            hitting = true;
             Effect(EffectSource.Collision);
+            hitting = false;
         }
     }
 

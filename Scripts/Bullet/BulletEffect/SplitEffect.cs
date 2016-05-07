@@ -8,22 +8,31 @@ public class SplitEffect : BulletEffect {
     public float splitAngle;
 
     public override void Effect(EffectSource source) {
-        transform.Rotate(Vector3.up, splitAngle);
-        float angleStart = splitAngle / 2f;
-        float angleIncrement = splitAngle / splitCounter;
-        for (int s = 0; s < splitCounter; s++) {
-            GameObject bulletClone = Instantiate(gameObject);
-            bulletClone.name = "Bullet";
+        if ((hitting == true && hit.collider.gameObject.layer != LayerMask.NameToLayer("Bullet")) || hitting == false) {
+            float angleStart;
+            float angleBetweenBullet;
 
-            if (source == EffectSource.Creation) {
-                bulletClone.GetComponent<SplitEffect>().applyOnCreation = false;
+            if (splitCounter == 1 || splitCounter == 0) {
+                angleBetweenBullet = 0;
+                angleStart = 0;
+            }
+            else {
+                angleBetweenBullet = splitAngle / (splitCounter - 1);
+                angleStart = splitAngle / 2f;
             }
 
-            bulletClone.transform.position = transform.position;
-            bulletClone.transform.rotation = transform.rotation;
-            bulletClone.GetComponent<Bullet>().Fire(gameObject);
-            bulletClone.transform.Rotate(Vector3.up, angleStart + angleIncrement * s);
-        }
-        Destroy(gameObject);
+            for (int s = 0; s < splitCounter; s++) {
+                GameObject bulletClone = Instantiate(gameObject);
+                bulletClone.name = "Bullet";
+
+                if (source == EffectSource.Creation) {
+                    bulletClone.GetComponent<SplitEffect>().applyOnCreation = false;
+                }
+                 
+                bulletClone.GetComponent<Bullet>().Fire(gameObject);
+                bulletClone.transform.Rotate(Vector3.up, -angleStart + angleBetweenBullet * s);
+            }
+            Destroy(gameObject);
+        }        
     }
 }

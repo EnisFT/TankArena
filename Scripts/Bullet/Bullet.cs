@@ -12,20 +12,25 @@ public class Bullet : MonoBehaviour {
     private LayerMask hitable;
 
     public void Start() {
-        hitable = 1 << 8 | 1 << 9 | 1 << 10 | 1 << 11 | 1 << 12;
+        hitable = 1 << 8 | 1 << 9 | 1 << 10 | 1 << 11 | 1 << 12 ;
     }
 
     public void Fire(GameObject source) {
         transform.eulerAngles = source.gameObject.transform.eulerAngles;
         transform.position = source.gameObject.transform.position;
         foreach (var component in GetComponents(typeof(BulletEffect))) {
-            ((BulletEffect)component).OnCreation();
+            ((BulletEffect)component).OnCreation() ;
         }
         isAlive = true;
+
+        if(enabled == false) {
+            Destroy(gameObject);
+        }
     }
 
     void Update() {
         if (isAlive) {
+            
             foreach (var component in GetComponents(typeof(BulletEffect))) {
                 ((BulletEffect)component).OnRefreshTimer();
             }
@@ -33,6 +38,10 @@ public class Bullet : MonoBehaviour {
             if (Physics.Raycast(startPos, transform.forward, out hit, 0.5f, hitable)) {
                 foreach (var component in GetComponents(typeof(BulletEffect))) {
                     ((BulletEffect)component).OnObstacleCollision(hit);
+                }
+                if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Bullet")) {
+                    hit.collider.gameObject.GetComponent<Bullet>().OnDestroy();
+                    OnDestroy();
                 }
                 if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Tank")) {
                     OnDestroy();
@@ -46,6 +55,7 @@ public class Bullet : MonoBehaviour {
         foreach (var component in GetComponents(typeof(BulletEffect))) {
             ((BulletEffect)component).OnDestruction();
         }
+        
         Destroy(gameObject);
     }
 

@@ -3,21 +3,17 @@
 public class BounceEffect : BulletEffect {
 
     public int bounceCounter;
-    private int numberOfBounce;
+    public int numberOfBounce;
 
     public override void Effect(EffectSource source) {
-        if (numberOfBounce == bounceCounter)
+        if (numberOfBounce >= bounceCounter) {
             GetComponent<Bullet>().OnDestroy();
-        if ((hit.collider.gameObject.layer == LayerMask.NameToLayer("Indestructible"))
+        }
+        if ((hit.collider.gameObject.layer == LayerMask.NameToLayer("Indestructible")) 
             || (hit.collider.gameObject.layer == LayerMask.NameToLayer("Destructible"))) {
             numberOfBounce++;
-            transform.Rotate(Vector3.up, 180 + 2 * Vector3.Angle(transform.forward, hit.normal));
+            transform.forward = Vector3.Reflect(transform.forward, hit.normal);
         }
-
-        if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Bullet")) {
-            GetComponent<Bullet>().OnDestroy();
-        }
-
     }
-
+    
 }
